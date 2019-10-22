@@ -17,6 +17,7 @@ def home(request):
 @login_required
 def customer_list(request):
     customer = Customer.objects.filter(created_date__lte=timezone.now())
+    print(customer)
     return render(request, 'crm/customer_list.html',
                   {'customers': customer})
 
@@ -95,7 +96,10 @@ def service_delete(request, pk):
 
 @login_required
 def product_list(request):
+    print(request)
     products = Product.objects.filter(created_date__lte=timezone.now())
+    print()
+    print(request)
     return render(request, 'crm/product_list.html', {'products': products})
 
 
